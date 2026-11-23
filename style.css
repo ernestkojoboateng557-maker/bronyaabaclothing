@@ -1,0 +1,260 @@
+/* ---------- Tokens ---------- */
+:root {
+  --indigo: #1d2a5b;
+  --indigo-dark: #131c40;
+  --gold: #e0a526;
+  --ink: #14172b;
+  --paper: #f7f8fc;
+  --white: #ffffff;
+  --line: #dfe3ef;
+  --muted: #5d647d;
+  --whatsapp: #1f9d55;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "DM Sans", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+button, input, select { font: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Top bar ---------- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--indigo-dark);
+}
+.brand {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-decoration: none;
+}
+.top-count {
+  color: var(--ink);
+  background: var(--gold);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 56px 20px 48px;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 18px, transparent 18px 36px) bottom / 100% 6px no-repeat,
+    var(--indigo);
+  color: var(--white);
+}
+.hero h1 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 1.05;
+  max-width: 14ch;
+}
+.hero p {
+  margin-top: 18px;
+  max-width: 46ch;
+  color: #cfd6f2;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  padding: 22px 20px 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#search {
+  flex: 1 1 240px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 8px 18px;
+  border: 1px solid var(--indigo);
+  background: var(--white);
+  color: var(--indigo);
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.chip.active { background: var(--indigo); color: var(--white); }
+.sort { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.sort select {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px 40px;
+  align-items: start;
+}
+.result-note { color: var(--muted); font-size: 0.9rem; margin: 8px 0 14px; }
+
+/* ---------- Product grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--line);
+}
+
+.card-info { padding: 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card-info h3 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.category { color: var(--muted); font-size: 0.85rem; text-transform: capitalize; }
+.price { font-weight: 700; color: var(--indigo); margin: 4px 0 10px; }
+.choose-btn {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--indigo);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 700;
+}
+.choose-btn:hover { background: var(--indigo-dark); }
+
+/* ---------- Selection panel ---------- */
+.selection {
+  position: sticky;
+  top: 76px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.selection h2 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.selection-list { list-style: none; }
+.selection-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.sel-name { flex: 1; }
+.sel-name small { display: block; color: var(--muted); }
+.qty { display: flex; align-items: center; gap: 6px; }
+.qty button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.empty { color: var(--muted); font-size: 0.9rem; padding: 6px 0 12px; }
+.empty.hidden { display: none; }
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  padding: 14px 0;
+}
+.note-label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+#customer-name {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.order-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+}
+.order-btn:hover { filter: brightness(0.92); }
+.clear-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+footer {
+  padding: 24px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .selection { position: static; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
