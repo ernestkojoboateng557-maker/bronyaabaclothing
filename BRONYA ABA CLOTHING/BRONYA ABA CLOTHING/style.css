@@ -1,0 +1,407 @@
+/* ---------- Tokens ---------- */
+:root {
+  --indigo: #1d2a5b;
+  --indigo-dark: #131c40;
+  --gold: #e0a526;
+  --ink: #14172b;
+  --paper: #f7f8fc;
+  --white: #ffffff;
+  --line: #dfe3ef;
+  --muted: #5d647d;
+  --whatsapp: #1f9d55;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "DM Sans", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+button, input, select, textarea { font: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* ---------- Top bar ---------- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--indigo-dark);
+}
+.brand {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  text-decoration: none;
+}
+.top-count {
+  color: var(--ink);
+  background: var(--gold);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 56px 20px 48px;
+  background:
+    repeating-linear-gradient(90deg, var(--gold) 0 18px, transparent 18px 36px) bottom / 100% 6px no-repeat,
+    var(--indigo);
+  color: var(--white);
+}
+.hero h1 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  line-height: 1.05;
+  max-width: 14ch;
+}
+.hero p {
+  margin-top: 18px;
+  max-width: 46ch;
+  color: #cfd6f2;
+}
+
+/* ---------- Controls ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  padding: 22px 20px 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#search {
+  flex: 1 1 240px;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 8px 18px;
+  border: 1px solid var(--indigo);
+  background: var(--white);
+  color: var(--indigo);
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.chip.active { background: var(--indigo); color: var(--white); }
+.sort { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 0.9rem; }
+.sort select {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--ink);
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px 40px;
+  align-items: start;
+}
+.result-note { color: var(--muted); font-size: 0.9rem; margin: 8px 0 14px; }
+
+/* ---------- Product grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.photo-wrap { position: relative; }
+.photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: top center;
+  background: var(--line);
+}
+.handle {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(20, 23, 43, 0.7);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.card-info { padding: 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.card-info h3 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.category { color: var(--muted); font-size: 0.85rem; text-transform: capitalize; }
+.price { font-weight: 700; color: var(--indigo); margin: 4px 0 10px; }
+.choose-btn {
+  margin-top: auto;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--indigo);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 700;
+}
+.choose-btn:hover { background: var(--indigo-dark); }
+.ask-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 9px;
+  border: 1px solid var(--whatsapp);
+  border-radius: 8px;
+  color: var(--whatsapp);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.ask-link:hover { background: var(--whatsapp); color: var(--white); }
+
+/* ---------- Selection and checkout panel ---------- */
+.selection {
+  position: sticky;
+  top: 76px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+.selection h2 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.selection-list { list-style: none; }
+.selection-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+.sel-name { flex: 1; }
+.sel-name small { display: block; color: var(--muted); }
+.qty { display: flex; align-items: center; gap: 6px; }
+.qty button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.empty { color: var(--muted); font-size: 0.9rem; padding: 6px 0 12px; }
+.empty.hidden { display: none; }
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  padding: 14px 0 10px;
+}
+
+.note-label { display: block; font-size: 0.85rem; color: var(--muted); margin: 10px 0 4px; }
+.field {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--ink);
+}
+textarea.field { resize: vertical; }
+
+/* ---------- Mobile Money box ---------- */
+.momo-box {
+  margin: 14px 0 4px;
+  padding: 14px;
+  border: 1px solid #f0cf8f;
+  border-radius: 10px;
+  background: #fff8e8;
+}
+.momo-box h3 {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+.momo-steps {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+.momo-steps li { margin-bottom: 4px; }
+.momo-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px dashed var(--gold);
+}
+.momo-number div { display: flex; flex-direction: column; }
+.momo-number strong { font-size: 1.25rem; letter-spacing: 0.04em; }
+.momo-number small { color: var(--muted); font-size: 0.8rem; }
+.copy-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: var(--indigo);
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ---------- Buttons and messages ---------- */
+.pay-btn,
+.order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+.pay-btn { background: var(--indigo); }
+.pay-btn:hover { background: var(--indigo-dark); }
+.order-btn { background: var(--whatsapp); margin-top: 10px; }
+.order-btn:hover { filter: brightness(0.92); }
+.clear-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.pay-message {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  background: #e7f6ee;
+  border: 1px solid #9fd8b8;
+}
+.pay-message[hidden] { display: none; }
+.pay-message.warn { background: #fff4e0; border-color: #f0cf8f; }
+.pay-message.error { background: #fdeaea; border-color: #f0a8a8; }
+
+/* ---------- Footer and social media ---------- */
+footer {
+  padding: 32px 20px 28px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+.follow-title {
+  font-family: "Bricolage Grotesque", Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 30px;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.social i { font-size: 1.2rem; }
+.social:hover { filter: brightness(0.9); }
+.social.instagram { background: #c13584; }
+.social.tiktok { background: #111111; }
+.social.facebook { background: #1877f2; }
+.social.whatsapp { background: var(--whatsapp); }
+
+/* Floating WhatsApp button */
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 20;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-size: 1.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; }
+  .selection { position: static; max-height: none; overflow: visible; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

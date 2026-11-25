@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRONYA ABA CLOTHING | Choose your style</title>
+  <meta name="description" content="BRONYA ABA CLOTHING: browse kente, ankara, evening and kids styles, see the prices, and pay with Mobile Money or order on WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="top">
+    <a href="#" class="brand">BRONYA ABA CLOTHING</a>
+    <a href="#selection" class="top-count">My selection (<span id="count">0</span>)</a>
+  </header>
+
+  <section class="hero">
+    <h1>Pick your style.<br>See the price.<br>Pay in minutes.</h1>
+    <p>Browse our latest designs, add the ones you like, and pay with Mobile Money or send your order on WhatsApp.</p>
+  </section>
+
+  <section class="controls" aria-label="Find a style">
+    <input type="search" id="search" placeholder="Search styles, e.g. peplum" aria-label="Search styles">
+
+    <div class="chips" id="filters" role="group" aria-label="Category">
+      <button class="chip active" data-category="all">All</button>
+      <button class="chip" data-category="kente">Kente</button>
+      <button class="chip" data-category="ankara">Ankara</button>
+      <button class="chip" data-category="evening">Evening</button>
+      <button class="chip" data-category="kids">Kids</button>
+    </div>
+
+    <label class="sort">
+      Sort by
+      <select id="sort">
+        <option value="default">Featured</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+    </label>
+  </section>
+
+  <div class="layout">
+    <main>
+      <p class="result-note" id="result-note" aria-live="polite"></p>
+      <div id="product-grid" class="grid"></div>
+    </main>
+
+    <aside id="selection" class="selection">
+      <h2>My selection</h2>
+      <ul id="selection-list" class="selection-list"></ul>
+      <p class="empty" id="empty">Nothing chosen yet. Tap "Choose" on any style.</p>
+
+      <div class="total-row">
+        <span>Total</span>
+        <strong>GH₵ <span id="total">0</span></strong>
+      </div>
+
+      <label class="note-label" for="pay-type">How much do you want to pay now?</label>
+      <select id="pay-type" class="field">
+        <option value="full">Pay the full amount</option>
+        <option value="deposit">Pay a deposit</option>
+      </select>
+
+      <div class="momo-box">
+        <h3><i class="fa-solid fa-mobile-screen-button"></i> Pay with Mobile Money</h3>
+        <ol class="momo-steps">
+          <li>Send <strong>GH₵ <span id="momo-amount">0</span></strong> to the number below.</li>
+          <li>Fill in your details and the Transaction ID from the confirmation SMS.</li>
+          <li>Tap "I have paid" to send the proof to us on WhatsApp.</li>
+        </ol>
+        <div class="momo-number">
+          <div>
+            <small id="momo-network"></small>
+            <strong id="momo-number"></strong>
+            <small id="momo-name"></small>
+          </div>
+          <button type="button" id="copy-btn" class="copy-btn">Copy</button>
+        </div>
+      </div>
+
+      <label class="note-label" for="customer-name">Your name</label>
+      <input type="text" id="customer-name" class="field" placeholder="Full name" autocomplete="name">
+
+      <label class="note-label" for="customer-phone">Your phone number</label>
+      <input type="tel" id="customer-phone" class="field" placeholder="e.g. 0241234567" autocomplete="tel">
+
+      <label class="note-label" for="momo-ref">MoMo Transaction ID</label>
+      <input type="text" id="momo-ref" class="field" placeholder="From the confirmation SMS">
+
+      <label class="note-label" for="customer-notes">Size, measurements or delivery location</label>
+      <textarea id="customer-notes" class="field" rows="3" placeholder="e.g. Size 12, deliver to Koforidua"></textarea>
+
+      <button id="paid-btn" class="pay-btn"><i class="fa-solid fa-circle-check"></i> I have paid</button>
+      <button id="order-btn" class="order-btn"><i class="fa-brands fa-whatsapp"></i> Order on WhatsApp (pay later)</button>
+      <button id="clear-btn" class="clear-btn">Clear selection</button>
+
+      <div id="pay-message" class="pay-message" hidden></div>
+    </aside>
+  </div>
+
+  <footer>
+    <h2 class="follow-title">Follow and chat with us</h2>
+
+    <div class="socials">
+      <a class="social instagram" href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i><span>@YOUR_INSTAGRAM</span>
+      </a>
+      <a class="social tiktok" href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank" rel="noopener">
+        <i class="fa-brands fa-tiktok"></i><span>@YOUR_TIKTOK</span>
+      </a>
+      <a class="social facebook" href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-f"></i><span>YOUR FACEBOOK PAGE</span>
+      </a>
+      <a class="social whatsapp" href="https://wa.me/233555824578" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i><span>WhatsApp us</span>
+      </a>
+    </div>
+
+    <p>BRONYA ABA CLOTHING. Prices are in Ghana cedis and may change for custom work.</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/233555824578" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
